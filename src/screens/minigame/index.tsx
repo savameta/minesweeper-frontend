@@ -3,26 +3,18 @@ import {
   AlertIcon,
   Avatar,
   Box,
-  Button,
-  Center,
-  Divider,
   Grid,
   GridItem,
-  Icon,
   IconButton,
   Image,
   Stack,
   StackDivider,
   Stat,
-  StatGroup,
-  StatHelpText,
   StatLabel,
   StatNumber,
   Text,
   useToast,
   VStack,
-  Wrap,
-  WrapItem,
 } from "@chakra-ui/react";
 import { useMetaMask } from "metamask-react";
 import React, { useEffect, useState } from "react";
@@ -37,9 +29,7 @@ import SocketIOClient, { Socket } from "socket.io-client";
 import { baseUrl, getMiniGameCommon, getHistory } from "./services/api.service";
 import { beautifyAddress, beautifyNumber } from "../../utils";
 import Document from "./components/document";
-import { MINESWEEPER_CONTRACT } from "../../constants/config";
-type Props = {};
-
+import { MINESWEEPER_CONTRACT, symbol } from "../../constants/config";
 export default function MiniGameScreen() {
   const { account, status } = useMetaMask();
   const [socket, setSocket] = useState<Socket | undefined>();
@@ -103,7 +93,6 @@ export default function MiniGameScreen() {
     window.open(`https://testnet.bscscan.com/address/${MINESWEEPER_CONTRACT}`);
   };
 
-  
   return (
     <Grid templateColumns="repeat(3, 1fr)" height={"100%"} padding={10}>
       <GridItem
@@ -205,7 +194,7 @@ export default function MiniGameScreen() {
             <Stat color={"white"}>
               <StatLabel>Total supply</StatLabel>
               <StatNumber>
-                {beautifyNumber(wei2ether(totalSupply))} BNB
+                {beautifyNumber(wei2ether(totalSupply))} {symbol}
               </StatNumber>
             </Stat>
             <Stat color={"white"}>
@@ -214,7 +203,7 @@ export default function MiniGameScreen() {
             </Stat>
             <Stat color={"white"}>
               <StatLabel>Expected supply</StatLabel>
-              <StatNumber>10 BNB</StatNumber>
+              <StatNumber>10 {symbol}</StatNumber>
             </Stat>
           </Box>
           <Box

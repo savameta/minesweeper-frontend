@@ -19,7 +19,7 @@ import { FaShoppingBag } from "react-icons/fa";
 import { Socket } from "socket.io-client";
 import { Minesweeper } from "../../../contracts/Minesweeper";
 import { wei2ether } from "../../../utils";
-import { MINESWEEPER_CONTRACT } from "../../../constants/config";
+import { MINESWEEPER_CONTRACT, symbol } from "../../../constants/config";
 
 type Props = {
   priceOfTurn: BigNumberish;
@@ -104,7 +104,7 @@ export default function BuyTurn({
               opacity={0.5}
               margin={2}
             >
-              {turn} turns = {wei2ether(amount)} BNB
+              {turn} turns = {wei2ether(amount)} {symbol}
             </Text>
           </ModalBody>
           <ModalFooter>
