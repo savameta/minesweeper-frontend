@@ -102,6 +102,8 @@ export default function MiniGameScreen() {
   const gotoContract = () => {
     window.open(`https://testnet.bscscan.com/address/${MINESWEEPER_CONTRACT}`);
   };
+
+  
   return (
     <Grid templateColumns="repeat(3, 1fr)" height={"100%"} padding={10}>
       <GridItem
