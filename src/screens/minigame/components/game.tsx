@@ -2,9 +2,9 @@ import { Stack, useToast, VStack, Wrap, WrapItem } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Socket } from "socket.io-client";
 import { Minesweeper } from "../../../contracts/Minesweeper";
-import { MINESWEEPER_CONTRACT } from "../../../hooks/use-contract";
 import Cell from "./cell-game";
 import { pattern } from "./pattern";
+import { MINESWEEPER_CONTRACT } from "../../../constants/config";
 
 type Props = {
   wasOpen: number[] | undefined;

@@ -1,10 +1,7 @@
-import { CheckIcon } from "@chakra-ui/icons";
 import {
   Button,
   Input,
   InputGroup,
-  InputLeftElement,
-  InputRightElement,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -17,13 +14,12 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { BigNumberish, ethers } from "ethers";
-import { useMetaMask } from "metamask-react";
 import React, { useState } from "react";
-import { FaCoins, FaShoppingBag } from "react-icons/fa";
+import { FaShoppingBag } from "react-icons/fa";
 import { Socket } from "socket.io-client";
 import { Minesweeper } from "../../../contracts/Minesweeper";
-import useContract, { MINESWEEPER_CONTRACT } from "../../../hooks/use-contract";
 import { wei2ether } from "../../../utils";
+import { MINESWEEPER_CONTRACT } from "../../../constants/config";
 
 type Props = {
   priceOfTurn: BigNumberish;
@@ -60,7 +56,7 @@ export default function BuyTurn({
         setLoading(false);
         toast({
           title: "Buy turn successful",
-          description: 'Buy more, my friend.',
+          description: "Buy more, my friend.",
           status: "success",
           duration: 3000,
           position: "top-right",
